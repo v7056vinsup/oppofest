@@ -39,7 +39,7 @@ export default function BookingSection({ sectionRef }) {
           <div className="track-line w-40 mx-auto mt-5" />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 items-start">
+        <div className="grid lg:grid-cols-1 gap-10 items-start">
           {/* Left: offer details */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -134,14 +134,14 @@ export default function BookingSection({ sectionRef }) {
           </motion.div>
 
           {/* Right: booking form */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <BookingForm />
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>
