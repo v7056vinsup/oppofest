@@ -39,10 +39,14 @@ export default function BookingForm() {
 
   // ── Derived values ────────────────────────────────────────────────────────
   const count = parseInt(form.count, 10) || 1;
-  const freeTickets = Math.floor(count / (GROUP_THRESHOLD + 1)); // buy 10 get 1 free
-  const chargeableTickets = count - freeTickets;
+  // const freeTickets = Math.floor(count / (GROUP_THRESHOLD + 1)); // buy 10 get 1 free
+  // const chargeableTickets = count - freeTickets;
+  // const total = chargeableTickets * TICKET_PRICE;
+  // const savings = count * ORIGINAL_PRICE - total;
+  const freeTickets = Math.floor(count / GROUP_THRESHOLD);
+
+  const chargeableTickets = count;
   const total = chargeableTickets * TICKET_PRICE;
-  const savings = count * ORIGINAL_PRICE - total;
 
   // ── Validation ────────────────────────────────────────────────────────────
   function validate() {
@@ -54,10 +58,38 @@ export default function BookingForm() {
     return e;
   }
 
+  // function handleChange(e) {
+  //   setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  //   setErrors((er) => ({ ...er, [e.target.name]: "" }));
+  // }
   function handleChange(e) {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-    setErrors((er) => ({ ...er, [e.target.name]: "" }));
+  const { name, value } = e.target;
+
+  setForm((f) => ({
+    ...f,
+    [name]: value,
+  }));
+
+  if (
+    name === "count" &&
+    Number(value) > 0 &&
+    Number(value) % GROUP_THRESHOLD === 0
+  ) {
+    toast.success(
+      `🎉 Congratulations! You unlocked ${Math.floor(
+        Number(value) / GROUP_THRESHOLD
+      )} FREE ticket${Math.floor(Number(value) / GROUP_THRESHOLD) > 1 ? "s" : ""}!`,
+      {
+        duration: 5000,
+      }
+    );
   }
+
+  setErrors((er) => ({
+    ...er,
+    [name]: "",
+  }));
+}
 
   // ── Initiate Razorpay payment ─────────────────────────────────────────────
   function handleSubmit(e) {
@@ -274,7 +306,7 @@ export default function BookingForm() {
         <div>
           <label className="font-rajdhani text-sm text-gray-300 mb-1 block">
             Number of Tickets
-            {count >= GROUP_THRESHOLD + 1 && (
+            {count >= GROUP_THRESHOLD && (
               <span className="ml-2 text-green-400 font-bold text-xs">
                 🎉 Group deal applied!
               </span>
@@ -322,15 +354,21 @@ export default function BookingForm() {
           <span>Tickets</span>
           <span className="text-white">{count}</span>
         </div>
-        {freeTickets > 0 && (
+        {/* {freeTickets > 0 && (
           <div className="flex justify-between font-rajdhani text-green-400 text-sm">
             <span>Free bonus tickets 🎉</span>
             <span>+{freeTickets} FREE</span>
           </div>
+        )} */}
+        {freeTickets > 0 && (
+          <div className="flex justify-between font-rajdhani text-yellow-400 text-sm">
+            <span>Total Tickets You'll Receive</span>
+            <span>{count + freeTickets}</span>
+          </div>
         )}
         <div className="flex justify-between font-rajdhani text-green-400 text-sm">
-          <span>You save</span>
-          <span className="font-bold">₹{savings.toLocaleString("en-IN")}</span>
+          {/* <span>You save</span>
+          <span className="font-bold">₹{savings.toLocaleString("en-IN")}</span> */}
         </div>
         <div className="pt-2 border-t border-gray-700 flex justify-between font-orbitron text-white font-bold">
           <span>Total</span>
@@ -341,7 +379,7 @@ export default function BookingForm() {
       {/* Group offer note */}
       {count < GROUP_THRESHOLD + 1 && (
         <p className="text-center text-gray-500 text-xs font-rajdhani mt-3">
-          💡 Buy {GROUP_THRESHOLD + 1}+ tickets — get 1 ticket FREE every 10!
+          💡 Buy {GROUP_THRESHOLD }+ tickets — get 1 ticket FREE every 10!
         </p>
       )}
 
