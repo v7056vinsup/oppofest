@@ -51,19 +51,28 @@ export default function BookingSection({ sectionRef }) {
             {/* Price card */}
             <div className="glass-card race-border rounded-2xl p-6 glow-red">
               <div className="flex items-center justify-between mb-4">
-                <div>
-                  <p className="font-orbitron text-gray-400 text-xs tracking-widest mb-1">Exclusice Price by Vinsup Skill Academy</p>
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-orbitron text-5xl font-black text-white">₹299</span>
-                    <span className="font-rajdhani text-gray-400 line-through text-xl">₹999</span>
+                <div className="flex-1">
+                  <p className="font-orbitron text-gray-400 text-xs tracking-widest mb-3">EXCLUSIVE PRICING</p>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-red-600/10 border border-red-500/30 rounded-xl p-3 text-center">
+                      <p className="font-orbitron text-gray-400 text-xs mb-1">🎓 STUDENTS</p>
+                      <p className="font-orbitron text-3xl font-black text-white">₹99</p>
+                      <p className="font-rajdhani text-gray-500 text-xs line-through">₹999</p>
+                      <p className="font-rajdhani text-green-400 text-xs font-bold">Save ₹900!</p>
+                    </div>
+                    <div className="bg-yellow-600/10 border border-yellow-500/30 rounded-xl p-3 text-center">
+                      <p className="font-orbitron text-gray-400 text-xs mb-1">👤 GENERAL</p>
+                      <p className="font-orbitron text-3xl font-black text-white">₹249</p>
+                      <p className="font-rajdhani text-gray-500 text-xs line-through">₹999</p>
+                      <p className="font-rajdhani text-green-400 text-xs font-bold">Save ₹750!</p>
+                    </div>
                   </div>
-                  <p className="font-rajdhani text-green-400 font-bold">You save ₹600 per ticket!</p>
                 </div>
-                <div className="text-5xl animate-float">🏎️</div>
+                <div className="text-4xl animate-float ml-3">🏎️</div>
               </div>
               <div className="track-line" />
               <p className="font-rajdhani text-gray-300 text-sm mt-4">
-                Regular price on BookMyShow is ₹999. This exclusive offer is only for Vinsup Gate Way Users —
+                Regular price on BookMyShow is ₹999. This exclusive offer is only for Vinsup Gateway Users —
                 first come, first served!
               </p>
             </div>

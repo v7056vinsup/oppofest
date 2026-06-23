@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar({ onBookClick }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handler);
@@ -14,7 +13,6 @@ export default function Navbar({ onBookClick }) {
   const links = [
     { label: "Event", href: "#highlights" },
     { label: "Venue", href: "#venue" },
-    { label: "Book", href: "#booking" },
   ];
 
   return (
@@ -28,6 +26,7 @@ export default function Navbar({ onBookClick }) {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
+        <img src="tcm.png" alt="chennai mobiles" className="w-20 h-auto object-contain" />
         <a href="#" className="flex items-center gap-2">
           <div className="checker-bg w-7 h-7 rounded-sm" />
           <span className="font-orbitron text-white font-black text-lg">
@@ -47,9 +46,9 @@ export default function Navbar({ onBookClick }) {
             </a>
           ))}
           <button
-            onClick={onBookClick}
+            onClick={() => window.open("https://pay.jodo.in/pages/zsQ6BRVfrLGHZyYh", "_blank")}
             className="btn-race rounded-lg px-5 py-2 font-orbitron text-white text-sm font-bold tracking-wider"
-          >
+          >   
             🎟️ BOOK NOW
           </button>
         </div>
@@ -90,7 +89,7 @@ export default function Navbar({ onBookClick }) {
                 onClick={() => { setMenuOpen(false); onBookClick(); }}
                 className="btn-race w-full rounded-lg px-5 py-3 font-orbitron text-white text-sm font-bold"
               >
-                🎟️ BOOK NOW — ₹299
+                🎟️ BOOK NOW — Students ₹99 · General ₹249
               </button>
             </div>
           </motion.div>

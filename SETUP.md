@@ -30,7 +30,7 @@
    | `{{ticket_id}}`  | Unique ticket ID e.g. SPF-2026-001 |
    | `{{ticket_count}}`| Number of tickets purchased       |
    | `{{free_tickets}}`| Bonus free tickets (if any)       |
-   | `{{total_amount}}`| Amount paid e.g. ₹299             |
+   | `{{total_amount}}`| Amount paid e.g. ₹249             |
    | `{{payment_id}}` | Razorpay payment ID                |
    | `{{event_date}}` | 28th June 2026                     |
    | `{{event_time}}` | 1:00 PM – 6:00 PM                  |
