@@ -96,10 +96,7 @@ export default function StudentFormModal({ open, onClose }) {
       // window.open("https://pay.jodo.in/pages/naWERNrmh8CuGrTe", "_blank");
       // console.log("Upload Response:", uploadData);
       setTimeout(() => {
-      window.open(
-        "https://pay.jodo.in/pages/naWERNrmh8CuGrTe",
-        "_blank"
-      );
+       window.location.href="https://pay.jodo.in/pages/naWERNrmh8CuGrTe"
     }, 500);
 
       onClose();
