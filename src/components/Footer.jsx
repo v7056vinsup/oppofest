@@ -13,7 +13,7 @@ export default function Footer() {
       </p>
       <div className="track-line w-48 mx-auto mt-6" />
       <p className="font-rajdhani text-gray-700 text-xs mt-4">
-        © 2026 Speed Fest. All rights reserved. Powered by Razorpay & EmailJS.
+        © 2026 Speed Fest. All rights reserved. Powered by Jodo.
       </p>
     </footer>
   );

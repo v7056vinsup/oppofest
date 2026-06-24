@@ -424,6 +424,7 @@ export default function HeroSection({ onBookClick }) {
               >
                 🎟️ Students ₹99 · Public ₹249
               </button>
+              <img src="/flag.png" alt="flag" className="w-20 h-20" />
               <a
                 href="#highlights"
                 className="btn-gold rounded-xl px-8 py-4 font-orbitron text-black font-black text-base tracking-wider uppercase"

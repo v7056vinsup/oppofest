@@ -17,6 +17,18 @@ export default function Navbar({ onBookClick }) {
     { label: "Venue", href: "#venue" },
   ];
 
+  useEffect(() => {
+  if (showPassModal || showStudentForm) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+
+  return () => {
+    document.body.style.overflow = "auto";
+  };
+}, [showPassModal, showStudentForm]); 
+
   return (
     <motion.nav
       initial={{ y: -80 }}
@@ -32,7 +44,7 @@ export default function Navbar({ onBookClick }) {
         <a href="#" className="flex items-center gap-2">
           <div className="checker-bg w-7 h-7 rounded-sm" />
           <span className="font-orbitron text-white font-black text-lg">
-            SPEED<span className="text-red-500">FEST</span>
+            OPPO SPEED<span className="text-red-500">FEST</span>
           </span>
         </a>
 
@@ -58,6 +70,18 @@ export default function Navbar({ onBookClick }) {
             className="btn-race rounded-lg px-5 py-2 font-orbitron text-white text-sm font-bold tracking-wider"
           >
             🎟️ BOOK NOW
+          </button>
+
+           <button
+            onClick={() =>
+              window.open(
+                "https://maps.app.goo.gl/2XDhCw6YKYs8X3Y56",
+                "_blank"
+              )
+            }
+            className="rounded-lg px-5 py-2 bg-gradient-to-r from-yellow-600 to-orange-500 hover:bg-gradient-to-r hover:from-yellow-700 hover:to-orange-600 text-white font-orbitron text-sm font-bold tracking-wider transition-all"
+          >
+            📍 CONTACT US
           </button>
         </div>
         
@@ -109,6 +133,19 @@ export default function Navbar({ onBookClick }) {
               >
                 🎟️ BOOK NOW
               </button>
+
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  window.open(
+                    "https://maps.app.goo.gl/2XDhCw6YKYs8X3Y56",
+                    "_blank"
+                  );
+                }}
+                className="w-full rounded-lg px-5 py-3 bg-gradient-to-r from-yellow-600 to-orange-500 hover:bg-gradient-to-r hover:from-yellow-700 hover:to-orange-600 text-white font-orbitron text-sm font-bold"
+              >
+                📍 CONTACT US
+              </button>
             </div>
           </motion.div>
         )}
@@ -117,7 +154,14 @@ export default function Navbar({ onBookClick }) {
       <AnimatePresence>
         {showPassModal && (
           <motion.div
-            className="fixed inset-0 z-[999] bg-black/80 flex items-center justify-center px-4"
+            className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center px-4"
+             style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+              }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -126,7 +170,7 @@ export default function Navbar({ onBookClick }) {
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
-              className="bg-zinc-900 rounded-2xl p-6 w-full max-w-md border border-red-500/40"
+              className="bg-zinc-900 rounded-2xl p-6 w-full max-w-md border border-red-500/40 mx-auto"
             >
               <h2 className="text-white text-2xl font-bold mb-6">
                 Select Pass Type

@@ -170,14 +170,42 @@ export default function StudentFormModal({ open, onClose }) {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg bg-zinc-800 text-white"
               />
+              
 
-              <input
+              {/* <input
                 type="file"
                 accept="image/*,.pdf"
                 required
                 onChange={handleChange}
                 className="w-full text-white"
-              />
+              /> */}
+              <div>
+  <label className="block text-white mb-2 font-medium">
+    College ID Card
+  </label>
+
+  <div className="flex items-center gap-3">
+    <label
+      htmlFor="idCardUpload"
+      className="cursor-pointer bg-red-600 hover:bg-red-700 text-white px-4 py-3 rounded-lg font-semibold transition"
+    >
+      Upload ID Card
+    </label>
+
+    <span className="text-gray-300 text-sm truncate">
+      {form.file ? form.file.name : "No file selected"}
+    </span>
+
+    <input
+      id="idCardUpload"
+      type="file"
+      accept="image/*,.pdf"
+      required
+      onChange={handleChange}
+      className="hidden"
+    />
+  </div>
+</div>
 
               <div className="flex gap-3">
                 <button

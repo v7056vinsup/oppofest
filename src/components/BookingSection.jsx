@@ -128,7 +128,7 @@ export default function BookingSection({ sectionRef }) {
                 ))}
               </div>
               <p className="font-rajdhani text-gray-500 text-xs mt-3 flex items-center gap-1">
-                🔒 Powered by Razorpay — 100% secure payments
+                🔒 Powered by Jodo — 100% secure payments
               </p>
             </div>
           </motion.div>
