@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import StudentFormModal from "./StudentFormModal";
 export default function Navbar({ onBookClick }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showPassModal, setShowPassModal] = useState(false);
+  const [showStudentForm, setShowStudentForm] = useState(false);
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handler);
@@ -45,13 +47,20 @@ export default function Navbar({ onBookClick }) {
               {l.label}
             </a>
           ))}
-          <button
+          {/* <button
             onClick={() => window.open("https://pay.jodo.in/pages/zsQ6BRVfrLGHZyYh", "_blank")}
             className="btn-race rounded-lg px-5 py-2 font-orbitron text-white text-sm font-bold tracking-wider"
           >   
             🎟️ BOOK NOW
+          </button> */}
+          <button
+            onClick={() => setShowPassModal(true)}
+            className="btn-race rounded-lg px-5 py-2 font-orbitron text-white text-sm font-bold tracking-wider"
+          >
+            🎟️ BOOK NOW
           </button>
         </div>
+        
 
         {/* Mobile menu button */}
         <button
@@ -85,16 +94,85 @@ export default function Navbar({ onBookClick }) {
                   {l.label}
                 </a>
               ))}
-              <button
+              {/* <button
                 onClick={() => { setMenuOpen(false); onBookClick(); }}
                 className="btn-race w-full rounded-lg px-5 py-3 font-orbitron text-white text-sm font-bold"
               >
                 🎟️ BOOK NOW — Students ₹99 · General ₹249
+              </button> */}
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  setShowPassModal(true);
+                }}
+                className="btn-race w-full rounded-lg px-5 py-3 font-orbitron text-white text-sm font-bold"
+              >
+                🎟️ BOOK NOW
               </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+      {/* Pass Selection Modal */}
+      <AnimatePresence>
+        {showPassModal && (
+          <motion.div
+            className="fixed inset-0 z-[999] bg-black/80 flex items-center justify-center px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="bg-zinc-900 rounded-2xl p-6 w-full max-w-md border border-red-500/40"
+            >
+              <h2 className="text-white text-2xl font-bold mb-6">
+                Select Pass Type
+              </h2>
+
+              <div className="space-y-4">
+                <button
+                  onClick={() => {
+                    setShowPassModal(false);
+                    setShowStudentForm(true);
+                  }}
+                  className="w-full p-4 rounded-xl bg-red-600 text-white font-bold"
+                >
+                  🎓 Student Pass ₹99
+                </button>
+
+                <button
+                  onClick={() => {
+                    window.open(
+                      "https://pay.jodo.in/pages/zsQ6BRVfrLGHZyYh",
+                      "_blank"
+                    );
+
+                    setShowPassModal(false);
+                  }}
+                  className="w-full p-4 rounded-xl bg-yellow-500 text-black font-bold"
+                >
+                  👤 General Pass ₹249
+                </button>
+
+                <button
+                  onClick={() => setShowPassModal(false)}
+                  className="w-full p-3 text-gray-400"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <StudentFormModal
+        open={showStudentForm}
+        onClose={() => setShowStudentForm(false)}
+      />
     </motion.nav>
   );
 }
