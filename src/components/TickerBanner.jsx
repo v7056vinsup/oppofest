@@ -3,7 +3,7 @@ const items = [
   "📅 28th June 2026",
   "📍 Kari Motor Speedway, Coimbatore",
   "⏰ 1 PM – 6 PM",
-  "🎓 College Students ₹99  |  👤 General Public ₹249",
+  "🎓 College Students ₹99  |  👤 General Visitor ₹249",
   "🚗 Supercars  •  Drift Shows  •  F2 Cars",
   "🏍️ Superbikes  •  Monster Trucks",
   "🍔 Food Stalls & Merch",

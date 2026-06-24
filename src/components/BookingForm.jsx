@@ -271,7 +271,7 @@ export default function BookingForm() {
             }`}
           >
             <div className="text-2xl mb-1">👤</div>
-            <p className="font-orbitron text-white text-xs font-bold">General Public</p>
+            <p className="font-orbitron text-white text-xs font-bold">General Visitor</p>
             <p className="font-rajdhani text-green-400 font-black text-xl mt-0.5">₹249</p>
             <p className="font-rajdhani text-gray-500 text-xs line-through">₹999</p>
             {form.userType === "normal" && (
@@ -332,12 +332,12 @@ export default function BookingForm() {
 
         {/* Ticket count */}
         <div>
-          <label className="font-rajdhani text-sm text-gray-300 mb-1 block">
+          {/* <label className="font-rajdhani text-sm text-gray-300 mb-1 block">
             Number of Tickets
             {count >= GROUP_THRESHOLD && (
               <span className="ml-2 text-green-400 font-bold text-xs">🎉 Group deal applied!</span>
             )}
-          </label>
+          </label> */}
           <div className="flex items-center gap-3">
             <button
               type="button"

@@ -52,8 +52,8 @@ export default function VenueSection() {
               { icon: "📅", label: "Date", value: "28th June 2026" },
               { icon: "⏰", label: "Timing", value: "1:00 PM – 6:00 PM" },
               { icon: "🎟️", label: "Entry (Students)", value: "₹99 (College Student Price)" },
-              { icon: "🎟️", label: "Entry (General)", value: "₹249 (General Public Price)" },
-              { icon: "👥", label: "Group Deal", value: "Buy 10 tickets, get 1 FREE!" },
+              { icon: "🎟️", label: "Entry (Visitor)", value: "₹249 (General Visitor Price)" },
+              // { icon: "👥", label: "Group Deal", value: "Buy 10 tickets, get 1 FREE!" },
             ].map((item, i) => (
               <motion.div
                 key={i}

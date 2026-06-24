@@ -422,7 +422,7 @@ export default function HeroSection({ onBookClick }) {
                 onClick={onBookClick}
                 className="btn-race rounded-xl px-8 py-4 font-orbitron text-white font-black text-base tracking-wider uppercase animate-pulse-red"
               >
-                🎟️ Students ₹99 · Public ₹249
+                🎟️ Students ₹99 · Visitor ₹249
               </button>
               <img src="/flag.png" alt="flag" className="w-20 h-20" />
               <a
@@ -446,7 +446,7 @@ export default function HeroSection({ onBookClick }) {
                 </div>
                 <div className="w-px h-8 bg-gray-600" />
                 <div className="text-center">
-                  <span className="font-rajdhani text-gray-400 text-xs block">General</span>
+                  <span className="font-rajdhani text-gray-400 text-xs block">Visitor</span>
                   <span className="font-orbitron text-xl font-black text-white">₹249</span>
                 </div>
                 <div className="w-px h-8 bg-gray-600" />
@@ -476,7 +476,7 @@ export default function HeroSection({ onBookClick }) {
                 cardWidth={cardWidth}
               />
               <FloatingTicket
-                title="PUBLIC PASS"
+                title="VISITOR PASS"
                 price="249"
                 color="gold"
                 position={pos2}

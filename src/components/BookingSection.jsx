@@ -61,7 +61,7 @@ export default function BookingSection({ sectionRef }) {
                       <p className="font-rajdhani text-green-400 text-xs font-bold">Save ₹900!</p>
                     </div>
                     <div className="bg-yellow-600/10 border border-yellow-500/30 rounded-xl p-3 text-center">
-                      <p className="font-orbitron text-gray-400 text-xs mb-1">👤 GENERAL</p>
+                      <p className="font-orbitron text-gray-400 text-xs mb-1">👤 Visitor</p>
                       <p className="font-orbitron text-3xl font-black text-white">₹249</p>
                       <p className="font-rajdhani text-gray-500 text-xs line-through">₹999</p>
                       <p className="font-rajdhani text-green-400 text-xs font-bold">Save ₹750!</p>
@@ -78,7 +78,7 @@ export default function BookingSection({ sectionRef }) {
             </div>
 
             {/* Group offer */}
-            <div className="glass-card border border-yellow-500/30 rounded-2xl p-5 glow-gold">
+            {/* <div className="glass-card border border-yellow-500/30 rounded-2xl p-5 glow-gold">
               <div className="flex items-start gap-3">
                 <span className="text-3xl">🎉</span>
                 <div>
@@ -92,7 +92,7 @@ export default function BookingSection({ sectionRef }) {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* What's included */}
             <div className="glass-card race-border rounded-2xl p-5">
