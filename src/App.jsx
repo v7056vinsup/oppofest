@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
@@ -11,6 +11,8 @@ import SpeedLines from "./components/SpeedLines";
 
 export default function App() {
   const bookingRef = useRef(null);
+  const [showPassModal, setShowPassModal] = useState(false);
+const [showStudentForm, setShowStudentForm] = useState(false);
 
   function scrollToBooking() {
     bookingRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -36,10 +38,10 @@ export default function App() {
       />
 
       {/* Navigation */}
-      <Navbar onBookClick={scrollToBooking} />
+      <Navbar onBookClick={scrollToBooking} showPassModal={showPassModal} setShowPassModal={setShowPassModal} showStudentForm={showStudentForm} setShowStudentForm={setShowStudentForm} />
 
       {/* Hero */}
-      <HeroSection onBookClick={scrollToBooking} />
+      <HeroSection onBookClick={scrollToBooking} showPassModal={showPassModal} setShowPassModal={setShowPassModal} showStudentForm={showStudentForm} setShowStudentForm={setShowStudentForm} />
 
       {/* Ticker */}
       <TickerBanner />

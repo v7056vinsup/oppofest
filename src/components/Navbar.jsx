@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import StudentFormModal from "./StudentFormModal";
-export default function Navbar({ onBookClick }) {
+export default function Navbar({  showPassModal,
+  setShowPassModal,
+  showStudentForm,
+  setShowStudentForm, }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showPassModal, setShowPassModal] = useState(false);
-  const [showStudentForm, setShowStudentForm] = useState(false);
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handler);

@@ -247,6 +247,7 @@ import { Canvas } from "@react-three/fiber";
 import { Float, Html } from "@react-three/drei";
 import CountdownTimer from "./CountdownTimer";
 import heroImg from "../assets/hero.png";
+import StudentFormModal from "./StudentFormModal";
 
 // ── Reactive window width ─────────────────────────────────────────────────────
 function useWindowWidth() {
@@ -313,11 +314,14 @@ function FloatingTicket({ title, price, color, position, distanceFactor, cardWid
 }
 
 // ── Main section ──────────────────────────────────────────────────────────────
-export default function HeroSection({ onBookClick }) {
+export default function HeroSection({   onBookClick,
+  showPassModal,
+  setShowPassModal,
+  showStudentForm,
+  setShowStudentForm, }) {
   const width = useWindowWidth();
   const isMobile = width < 768;
   const isSmallMobile = width < 480;
-
   // Camera distance
   const cameraZ = isSmallMobile ? 9 : isMobile ? 10 : 16;
 
@@ -383,6 +387,12 @@ export default function HeroSection({ onBookClick }) {
             >
               SPEED. POWER. PASSION. — ALL ON TRACK!
             </motion.p>
+            <button
+              onClick={() => setShowPassModal(true)}
+              className="btn-race rounded-lg px-6 py-3 font-orbitron text-white font-bold uppercase animate-pulse-red"
+            >
+              🎟️ Book Now
+            </button>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -452,6 +462,7 @@ export default function HeroSection({ onBookClick }) {
                 <div className="w-px h-8 bg-gray-600" />
                 <span className="font-rajdhani text-gray-500 text-sm line-through">₹999</span>
               </div>
+              
             </motion.div>
           </div>
 
